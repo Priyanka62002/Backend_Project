@@ -141,6 +141,7 @@ const loginUser=asyncHandler(async(req,res)=>{
    //by the ones created by us are operted by user because it is an instance of User
        
    const isPasswordValid = await user.isPasswordCorrect(password)
+   console.log(isPasswordValid)
    if(!isPasswordValid){
     throw new ApiError(401,"password is incorrect")
    }
@@ -197,7 +198,7 @@ const logoutUser=asyncHandler(async(req,res)=>{
             new:true  //returns the new updated value
         }
     )
-
+    //console.log(user.fullname)
     //cookie clearing
     const options={
         httpOnly:true,
